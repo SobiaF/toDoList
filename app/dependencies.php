@@ -32,6 +32,16 @@ return function (ContainerBuilder $containerBuilder) {
         $renderer = new PhpRenderer($settings['template_path']);
         return $renderer;
     };
+    $container['db'] = function() {
+        $db = new PDO('mysql:host=127.0.0.1;dbname=todolist', 'root', 'password');
+        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        return $db;
+    };
+
+    $container['ListingsModel'] = DI\factory('\App\AddTaskFactory');
+
+    $container['UncompletedPageController'] = DI\factory('\App\Factories\UncompletedPageControllerFactory');
+    $container['CompletedPageController'] = DI\factory('\App\Factories\CompletedPageControllerFactory');
 
     $containerBuilder->addDefinitions($container);
 };
