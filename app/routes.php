@@ -8,5 +8,5 @@ return function (App $app) {
     $container = $app->getContainer();
 
     $app->get('/',  'UncompletedController');
-    $app->get('/done',  'CompletedController');
+    $app->put('/done',  'CompletedController');
 };

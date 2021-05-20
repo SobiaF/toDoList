@@ -12,7 +12,7 @@ class UncompletedPageController
     protected $model;
     protected $view;
 
-    public function __construct(AddTask $model, $view)
+    public function __construct(TasksModel $model, $view)
     {
         $this->model = $model;
         $this->view = $view;

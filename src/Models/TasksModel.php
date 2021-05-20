@@ -5,7 +5,7 @@ namespace App\Models;
 
 use PDO;
 
-class addTask
+class TasksModel
 {
     protected $db;
 
@@ -14,7 +14,7 @@ class addTask
         $this->db = $db;
     }
 
-    public function getTask(): array
+    public function getTasks(): array
     {
         $query = $this->db->prepare('SELECT * FROM `tasks`;');
         $query->execute();
