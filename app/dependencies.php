@@ -38,7 +38,7 @@ return function (ContainerBuilder $containerBuilder) {
         return $db;
     };
 
-    $container['ListingsModel'] = DI\factory('\App\TasksModelFactory');
+    $container['TasksModel'] = DI\factory('\App\Factories\TasksModelFactory');
 
     $container['UncompletedPageController'] = DI\factory('\App\Factories\UncompletedPageControllerFactory');
     $container['CompletedPageController'] = DI\factory('\App\Factories\CompletedPageControllerFactory');

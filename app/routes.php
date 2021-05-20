@@ -7,6 +7,7 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 return function (App $app) {
     $container = $app->getContainer();
 
-    $app->get('/',  'UncompletedController');
-    $app->put('/done',  'CompletedController');
+    $app->get('/',  'UncompletedPageController');
+    $app->post('/add', 'AddToDoController');
+    $app->post('/done',  'DoneController');
 };
