@@ -9,5 +9,5 @@ return function (App $app) {
 
     $app->get('/',  'UncompletedPageController');
     $app->post('/add', 'AddToDoController');
-    $app->post('/done',  'DoneController');
+    $app->post('/done',  'CompletedPageController');
 };

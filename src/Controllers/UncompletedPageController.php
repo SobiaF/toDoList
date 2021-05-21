@@ -20,7 +20,7 @@ class UncompletedPageController
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        var_dump($this->model->getTasks());
+        var_dump($this->model->addTask());
         return $this->view->render($response, "index.php", $args);
     }
 
