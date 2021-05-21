@@ -7,9 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<form action="/" method="post" id="addTaskHereForm">
-    <input type="text" name="addTaskHere" id="addTaskHere" placeholder="Write down your task here">
-    <input type="submit" id="submit" value=" ">
+    <form action='/' method='post' id="formToAddTask">
+        <input type="text" name="addTaskHere" id="addTaskHere" placeholder="Write down your task here" required>
+        <input type='submit' value='submit'>
+    </form>
+    </section>
+
+    <?php
+
+    echo showKdramas($Kdramas);
+    ?>
 </form>
 </body>
 </html>
