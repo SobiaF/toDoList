@@ -8,6 +8,6 @@ return function (App $app) {
     $container = $app->getContainer();
 
     $app->get('/',  'UncompletedPageController');
-    $app->post('/add', 'AddToDoController');
+    $app->post('/add', 'AddTaskController');
     $app->post('/done',  'CompletedPageController');
 };

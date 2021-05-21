@@ -14,26 +14,11 @@ class TasksModel
         $this->db = $db;
     }
 
-//    public function getTasks(): array
-//    {
-//        $query = $this->db->prepare('SELECT * FROM `tasks`;');
-//        $query->execute();
-//        return $query->fetchAll();
-//    }
-
-    public function addTask($task)
-    {
-        $query = $this->db->prepare('INSERT INTO `tasks` (`task`) VALUES (:task);');
-        $query->bindParam('task', $task);
-        $query->execute();
-    }
-    public function getCompletedTasks(): array
-    {
-        $query = $this->db->prepare('SELECT * FROM `tasks` WHERE `completed` = 1;');
-        $query->execute();
-        return $query->fetchAll();
-    }
-
+    /**
+     * gets uncompleted tasks
+     *
+     * @return array
+     */
     public function getUncompletedTasks(): array
     {
         $query = $this->db->prepare('SELECT * FROM `tasks` WHERE `completed` = 0;');
@@ -41,6 +26,11 @@ class TasksModel
         return $query->fetchAll();
     }
 
+    /**
+     * marks task as completed
+     *
+     * @param int $id
+     */
     public function markTaskCompleted(int $id): void
     {
         $query = $this->db->prepare('UPDATE `tasks` SET `completed` = 1 WHERE id = :id;');
@@ -48,6 +38,37 @@ class TasksModel
         $query->execute();
     }
 
+    /**
+     * adds a task to the to do list
+     *
+     * @param $task
+     */
+
+    public function addTask($task)
+    {
+        $query = $this->db->prepare('INSERT INTO `tasks` (`task`) VALUES (:task);');
+        $query->bindParam('task', $task);
+        $query->execute();
+    }
+
+    /**
+     * gets completed tasks
+     *
+     * @return array
+     */
+
+    public function getCompletedTasks(): array
+    {
+        $query = $this->db->prepare('SELECT * FROM `tasks` WHERE `completed` = 1;');
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+    /**
+     * deletes a completed task
+     *
+     * @param int $id
+     */
     public function deleteCompletedTask(int $id): void
     {
         $query = $this->db->prepare('UPDATE `tasks` SET `deleted` = 1 WHERE id = :id;');
@@ -58,11 +79,11 @@ class TasksModel
 
 /*
  * For model:
- * addTask - will go into UncompletedPageController
- * getCompletedTasks - will go into CompletedPageController
- * getUncompletedTasks - will go into UncompletedPageController
- * markTaskCompleted - will go into UncompletedPageController
- * deleteCompletedTask - will go into CompletedPageController
+ * getCompletedTasks
+ * getUncompletedTasks
+ * addTask
+ * markTaskCompleted
+ * deleteCompletedTask
  */
 
 
