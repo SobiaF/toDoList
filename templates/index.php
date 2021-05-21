@@ -15,7 +15,7 @@
 
     <?php
 
-    echo showKdramas($Kdramas);
+
     ?>
 </form>
 </body>
