@@ -14,8 +14,7 @@
     </section>
 
     <?php
-
-
+    var_dump($tasks);
     ?>
 </form>
 </body>
