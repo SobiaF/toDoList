@@ -20,8 +20,8 @@ class UncompletedPageController
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $task = $this->model->getUncompletedTasks();
-        return $this->view->render($response, "index.php", ['tasks'=>$task]);
+        $tasks = $this->model->getUncompletedTasks();
+        return $this->view->render($response, "index.php", ['tasks'=>$tasks]);
     }
 
 }

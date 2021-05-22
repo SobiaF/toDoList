@@ -11,11 +11,14 @@
         <input type="text" name="addTaskHere" id="addTaskHere" placeholder="Write down your task here" required>
         <input type='submit' value='submit'>
     </form>
-    </section>
 
     <?php
-    var_dump($tasks);
+    foreach ($tasks as $task) {
+        echo "<p>" . $task['task'];
+        echo " <a href='/mark/" . $task['id'] . "'>Click When Done</a>" . "</p>";
+    }
     ?>
-</form>
+    <a href='/done'>List of Tasks Done</a>
+
 </body>
 </html>

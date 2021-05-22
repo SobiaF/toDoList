@@ -31,7 +31,7 @@ class TasksModel
      *
      * @param int $id
      */
-    public function markTaskCompleted(int $id): void
+    public function markCompleted(int $id): void
     {
         $query = $this->db->prepare('UPDATE `tasks` SET `completed` = 1 WHERE id = :id;');
         $query->bindParam(':id', $id);
@@ -79,9 +79,9 @@ class TasksModel
 
 /*
  * For model:
- * getCompletedTasks
- * getUncompletedTasks
- * addTask
+ * getCompletedTasks - done
+ * getUncompletedTasks - done
+ * addTask - done
  * markTaskCompleted
  * deleteCompletedTask
  */

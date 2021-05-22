@@ -20,8 +20,8 @@ class CompletedPageController
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        var_dump($this->model->addTask());
-        return $this->view->render($response, "index.php", $args);
+        $tasks = $this->model->getCompletedTasks();
+        return $this->view->render($response, "done.php", ['tasks'=>$tasks]);
     }
 
 }
