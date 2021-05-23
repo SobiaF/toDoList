@@ -43,6 +43,10 @@ return function (ContainerBuilder $containerBuilder) {
     $container['CompletedPageController'] = DI\factory('\App\Factories\CompletedPageControllerFactory');
     $container['UncompletedPageController'] = DI\factory('\App\Factories\UncompletedPageControllerFactory');
     $container['MarkCompletedController'] = DI\factory('\App\Factories\MarkCompletedControllerFactory');
+    $container['AddTaskController'] = DI\factory('\App\Factories\AddTaskControllerFactory');
+    $container['DeleteTaskController'] = DI\factory('\App\Factories\DeleteTaskControllerFactory');
+    $container['EditTaskController'] = DI\factory('\App\Factories\EditTaskControllerFactory');
+    $container['SubmitEditController'] = DI\factory('\App\Factories\SubmitEditControllerFactory');
 
     $containerBuilder->addDefinitions($container);
 };

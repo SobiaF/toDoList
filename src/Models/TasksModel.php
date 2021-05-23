@@ -21,7 +21,7 @@ class TasksModel
      */
     public function getUncompletedTasks(): array
     {
-        $query = $this->db->prepare('SELECT * FROM `tasks` WHERE `completed` = 0;');
+        $query = $this->db->prepare('SELECT * FROM `tasks` WHERE `completed` = 0 AND `deleted` = 0;');
         $query->execute();
         return $query->fetchAll();
     }
@@ -69,21 +69,32 @@ class TasksModel
      *
      * @param int $id
      */
-    public function deleteCompletedTask(int $id): void
+    public function deleteTask(int $id): void
     {
         $query = $this->db->prepare('UPDATE `tasks` SET `deleted` = 1 WHERE id = :id;');
         $query->bindParam(':id', $id);
         $query->execute();
     }
+
+    /**
+     * edits a completed task
+     *
+     * @param int $id
+     * @param string $newTaskName
+     */
+    public function updateTask(int $id, string $newTaskName): void
+    {
+        $query = $this->db->prepare('UPDATE `tasks` SET `task` = :newTaskName WHERE `id` = :id;');
+        $query->bindParam(':newTaskName', $newTaskName);
+        $query->bindParam(':id', $id);
+        $query->execute();
+    }
+
+    public function getTask(int $id): array
+    {
+        $query = $this->db->prepare('SELECT * FROM `tasks` WHERE id = :id;');
+        $query->bindParam(':id', $id);
+        $query->execute();
+        return $query->fetch();
+    }
 }
-
-/*
- * For model:
- * getCompletedTasks - done
- * getUncompletedTasks - done
- * addTask - done
- * markTaskCompleted
- * deleteCompletedTask
- */
-
-

@@ -13,6 +13,5 @@
         echo "<p>" . $task['task'] . "</p>";
     }
     ?>
-
 </body>
 </html>
