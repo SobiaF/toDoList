@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+@import url(https://fonts.googleapis.com/css?family=roboto);
+
+html {
+    color: #f0f8ff;
+    font-family: "roboto", arial;
+    font-size: 18px;
+    padding: 30px;
+}
+
+body {
+    background-image: url(https://images.unsplash.com/photo-1591158713933-351b939ed0e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 600px) {
+    main section {
+        grid-template-columns: 1fr;  }
+}
