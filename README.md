@@ -4,7 +4,7 @@ A place to put down what you have to do, remove and edit.
 
 Get ready to plan!
 
-Note this uses slim4, and the skeleton for it was provided (at iO Academy with the following in the README file:
+Note this uses slim4, and the skeleton for it was provided at iO Academy with the following in the README file:
 
 # Slim Framework 4 Skeleton Application
 
